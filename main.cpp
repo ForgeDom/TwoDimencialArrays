@@ -8,6 +8,8 @@ int main() {
     const int max_col = 100;
     int row, col;
     double sum = 0;
+   
+    
     double average;
 
     do {
@@ -24,51 +26,35 @@ int main() {
 
     for (int j = 0; j < row; ++j) {
         for (int i = 0; i < col; ++i) {
-            arr[i][j] = rand() % 10;
-            sum += arr[i][j];
+            arr[j][i] = rand() % 10;
+            sum += arr[j][i];
+        }
+    }
+
+    for (int j = 0; j < row; ++j) {
+        for (int i = 0; i < col; ++i) {
+            cout << arr[j][i] << " ";
         }
         cout << endl;
     }
 
     for (int j = 0; j < row; ++j) {
+        int row_sum = 0;
         for (int i = 0; i < col; ++i) {
-            cout << arr[i][j] << " ";
+            row_sum += arr[j][i];
         }
-        cout << endl;
-    }
-
-    int min = arr[0][0];
-    int max = arr[0][0];
-
-    for (int j = 0; j < row; ++j) {
-        for (int i = 0; i < col; ++i) {
-            if (arr[i][j] < min) {
-                min = arr[i][j];
-            }
-        }
-        cout << endl;
-    }
-    for (size_t i = 0; i < col; i++)
-    {
-        for (size_t j = 0; j < row; j++)
-        {
-            if (arr[i][j] < min)
-            {
-                min = arr[i][j];
-            }
-            if (arr[i][j] > max)
-            {
-                max = arr[i][j];
-            }
-        }
+        cout << "Row " << j + 1 << ": " << row_sum << endl;
     }
 
 
-    average = sum / (row * col);
-    cout << sum << endl;
-    cout << average << endl;
-    cout << min<< endl;
-    cout << max << endl;
+    for (int i = 0; i < col; ++i) {
+        int col_sum = 0;
+        for (int j = 0; j < row; ++j) {
+            col_sum += arr[j][i];
+        }
+        cout << "Column " << i + 1 << ": " << col_sum << endl;
+    }
+    cout << "Total sum:" << sum << endl;
 
     return 0;
 }
