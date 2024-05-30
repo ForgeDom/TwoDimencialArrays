@@ -40,14 +40,6 @@ int main() {
     int min = arr[0][0];
     int max = arr[0][0];
 
-    for (int j = 0; j < row; ++j) {
-        for (int i = 0; i < col; ++i) {
-            if (arr[i][j] < min) {
-                min = arr[i][j];
-            }
-        }
-        cout << endl;
-    }
     for (size_t i = 0; i < col; i++)
     {
         for (size_t j = 0; j < row; j++)
@@ -67,9 +59,8 @@ int main() {
     average = sum / (row * col);
     cout << sum << endl;
     cout << average << endl;
-    cout << min<< endl;
+    cout << min << endl;
     cout << max << endl;
 
     return 0;
 }
-
